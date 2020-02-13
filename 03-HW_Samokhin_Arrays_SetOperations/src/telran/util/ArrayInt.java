@@ -160,19 +160,22 @@ public class ArrayInt {
 	 * with no repetitions 
 	 */
 	public static int[] union (int ar1[], int ar2[]) {		
-		int[] result = Arrays.copyOf(ar1, ar1.length);
+		int[] result = Arrays.copyOf(ar1, ar1.length+ar2.length);
 		boolean isInAr = false; 
+		int index = ar1.length;
+		
 		for(int i=0; i<ar2.length; i++) {
 			for(int item : ar1) {
 				if(item == ar2[i]) isInAr=true;
+				
 			}
 			if(isInAr==false) {				
-				result = insert(result, result.length, ar2[i]);
+				result[index++] = ar2[i];
+				isInAr=false;
 			}
-			isInAr=false;
 		}
 		
-		return result;
+		return Arrays.copyOf(result, index);
 	}
 	/**
 	 * Assumption: no repeated numbers in each array, but
@@ -183,13 +186,17 @@ public class ArrayInt {
 	 * with no repetitions 
 	 */
 	public static int[] intersection (int ar1[], int ar2[]) {
-		int[] result = new int[0];
+		int[] result = new int[ar1.length > ar2.length ? ar2.length : ar1.length];
+		int index = 0;
+		
 		for(int i=0; i<ar1.length; i++) {
 			for(int item:ar2) {
-				if(item==ar1[i]) result = insert(result, result.length, ar1[i]);
+				if(item==ar1[i]) {
+					result[index++] = item;
+				};
 			}
 		}
-		return result;
+		return Arrays.copyOf(result, index);
 	}
 	/**
 	 * Assumption: no repeated numbers in each array, but
@@ -200,16 +207,32 @@ public class ArrayInt {
 	 * 	in the second
 	 */
 	public static int[] difference (int ar1[], int ar2[]) {
-		int[] result = new int[0];
-		boolean uniqueNumber = true;
-		for(int i=0; i<ar1.length; i++) {
-			for(int item:ar2) {
-				if(item == ar1[i]) uniqueNumber=false;
+		int[] result = new int[ar1.length < ar2.length ? ar1.length : ar2.length];
+		int index = 0;
+		
+		boolean hasRepeats = false;
+		for (int i = 0; i < ar1.length; i++) {
+			for (int item: ar2) {
+				if (item==ar1[i]) {
+					hasRepeats = true;
+				}
 			}
-			if(uniqueNumber==true) result=insert(result, result.length, ar1[i]);
-			uniqueNumber = true;
+			if (hasRepeats==false) {
+				result[index++]=ar1[i];
+			}else {
+				hasRepeats = false;
+			}
 		}
-		return result;
+		
+		return Arrays.copyOf(result, index);
+	}
+	
+	public static void main(String[] args) {
+		int ar1[] = {10, 30, -8, 20};
+		int ar2[] = {30, -8, 20};
+		int[] result = difference(ar1, ar2);
+		
+		System.out.println(Arrays.toString(result));
 	}
 }
 
