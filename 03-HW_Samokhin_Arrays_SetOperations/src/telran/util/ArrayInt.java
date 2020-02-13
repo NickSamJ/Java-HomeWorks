@@ -226,14 +226,6 @@ public class ArrayInt {
 		
 		return Arrays.copyOf(result, index);
 	}
-	
-	public static void main(String[] args) {
-		int ar1[] = {10, 30, -8, 20};
-		int ar2[] = {30, -8, 20};
-		int[] result = difference(ar1, ar2);
-		
-		System.out.println(Arrays.toString(result));
-	}
 }
 
 
