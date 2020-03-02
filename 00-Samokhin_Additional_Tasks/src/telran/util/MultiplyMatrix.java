@@ -12,8 +12,16 @@ public class MultiplyMatrix {
 				{0,0,0,},
 				{0,0,1,}
 		};
+		int[][] m3 = {
+				{3, -4},
+				{2,0,},
+				{-1, 6},
+				{5, 1} 
+		};
+		
 //		printMatrix(matrix1);
 		multMatrixes(m1, m2);
+		transpose(m3);
 		
 	}
 	public static void printMatrix(int[][] matrix) {
@@ -33,11 +41,21 @@ public class MultiplyMatrix {
 				}
 			}
 		}
-		printMatrix(res);
+//		printMatrix(res);
 	}
 	public static void shuffle(int[] ar1, int[] ar2) {
 		int[] res = new int[ar1.length+ar2.length];
 		int firstSymb = 0;
+	}
+	public static void transpose(int[][] m) {
+		int[][] res = new int[m[0].length][m.length];
+		for (int i = 0; i < m.length; i++) {
+			for (int j = 0; j < m[0].length; j++) {
+				res[j][i] = m[i][j];
+			}
+		}
+		printMatrix(res);
+		
 	}
 	
 }
