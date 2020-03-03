@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-13">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/08-CW_IndexedListInterface"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/07-HW_Array"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/09-HW_IndexedLinkedList"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
